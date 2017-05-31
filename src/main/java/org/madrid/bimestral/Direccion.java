@@ -5,15 +5,45 @@
  */
 package org.madrid.bimestral;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author T-
  */
+@Entity
 public class Direccion {
+    
+    @Id
+    private Long id;
+    
     private Integer numero;
     private String calle;
     private Long CP;
     private String municipio;
+
+    public Direccion() {
+    }
+
+    public Direccion(Long id, Integer numero, String calle, Long CP, String municipio) {
+        this.id = id;
+        this.numero = numero;
+        this.calle = calle;
+        this.CP = CP;
+        this.municipio = municipio;
+    }
+
+    public Direccion(Integer numero, String calle, Long CP, String municipio) {
+        this.numero = numero;
+        this.calle = calle;
+        this.CP = CP;
+        this.municipio = municipio;
+    }
+
+    public Direccion(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
@@ -75,6 +105,14 @@ public class Direccion {
      */
     public void setMunicipio(String municipio) {
         this.municipio = municipio;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
 }
