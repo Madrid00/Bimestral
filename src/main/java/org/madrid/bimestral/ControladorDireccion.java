@@ -5,6 +5,10 @@
  */
 package org.madrid.bimestral;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,5 +17,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class ControladorDireccion {
+
+    /**
+     * @param numero ESte parametro es el numero de calle y es de Integer
+     * @param calle El nombre de la calle es de tipo String
+     * @param cp El codigo postal es de tipo Long
+     * @param municipio El municipio es de tipo String
+     * @return El tipo de retorno es el onjeto Direccion que se guardo e incluye el
+     */
     
+    @Autowired RepositorioDireccion repo;
+@RequestMapping(value="/direccion/{numero}/{calle}/{cp}/{municipio}",
+        method=RequestMethod.POST,headers={"Accept=application/json"})
+        public Direccion guardar(@PathVariable Integer numero,@PathVariable String calle,
+                @PathVariable Long cp, @PathVariable String municipio){
+            return repo.save(new Direccion(numero,calle,cp,municipio));
+        }
 }
