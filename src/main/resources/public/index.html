@@ -22,9 +22,47 @@ and open the template in the editor.
         <input type="text" placeholder="calle" id="calle">
         <input type="text" placeholder="cp" id="cp">
         <input type="text" placeholder="municipio" id="municipio">
+        <br>
+        <br>
         <button id="guardarDireccion" class="btn btn-danger">Guardar direccion</button>
-         
-        <script src="js/jquery.min.js"></script> <!--Interfaz del cliente -->
+       
+        <h3>---------------------------------------------------------------------------------------------------------------</h3>
+        <h1>Seccion 2, Buscar por Id, Actualizar y Borrar</h1>
+        <button id="buscarPorId" class="btn btn-info">Buscar por ID</button>
+        <br>
+        <br>
+        <input type="text" placeholder="id" id="id">
+        <input type="text" placeholder="numero" id="numero2">  <!--placeholder aparece lo que contendra--> 
+        <input type="text" placeholder="calle" id="calle2">
+        <input type="text" placeholder="cp" id="cp2">
+        <input type="text" placeholder="municipio" id="municipio2">
+        <br>
+        <br>
+        <button id="actualizar" class="btn btn-success">Actualizar</button>
+        <button id="borrar" class="btn btn-info">Borrar por ID</button>
+        
+        <h2> Vamos a buscar todos </h2>
+        <ul id="elementos"> </ul>
+        <div class="container">
+  <h2>Striped Rows</h2>
+  <p>The .table-striped class adds zebra-stripes to a table:</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Numero</th>
+        <th>Calle</th>
+        <th>CP</th>
+        <th>Municipio</th>
+      </tr>
+    </thead>
+    <tbody id="tablita">
+      
+    </tbody>
+  </table>
+</div>
+
+    <script src="js/jquery.min.js"></script>
     <script src="js/tether.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/primero.js"></script>
