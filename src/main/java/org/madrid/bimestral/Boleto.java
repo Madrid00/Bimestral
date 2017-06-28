@@ -5,46 +5,70 @@
  */
 package org.madrid.bimestral;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  *
  * @author T-
  */
+@Entity
+@Table(name="boleto")
 public class Boleto {
     
-    private Integer id_boleto;
-    private Integer id_sala;
-    private float CostoBoleto;
-
-    public Boleto(Integer id_boleto, Integer id_sala, float CostoBoleto) {
-        this.id_boleto = id_boleto;
-        this.id_sala = id_sala;
-        this.CostoBoleto = CostoBoleto;
-    }
+    @Id
+    @GeneratedValue
+    @Column(name="id_boleto")
+    Long id;
+    
+    @ManyToOne     // Se realiza la relacion de muchos Boletos a una Sala -> Ordinalidad
+    @JoinColumn(name="id_sala")
+    SalaCine sala;
+    
+    @Column(name="costoBoleto")
+    Float costo;
 
     public Boleto() {
     }
 
-    public Integer getId_boleto() {
-        return id_boleto;
+    public Boleto(SalaCine sala, Float costo) {
+        this.sala = sala;
+        this.costo = costo;
     }
 
-    public void setId_boleto(Integer id_boleto) {
-        this.id_boleto = id_boleto;
+    public Long getId() {
+        return id;
     }
 
-    public Integer getId_sala() {
-        return id_sala;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setId_sala(Integer id_sala) {
-        this.id_sala = id_sala;
+    public SalaCine getSala() {
+        return sala;
     }
 
-    public float getCostoBoleto() {
-        return CostoBoleto;
+    public void setSala(SalaCine sala) {
+        this.sala = sala;
     }
 
-    public void setCostoBoleto(float CostoBoleto) {
-        this.CostoBoleto = CostoBoleto;
+    public Float getCosto() {
+        return costo;
     }
+
+    public void setCosto(Float costo) {
+        this.costo = costo;
+    }
+
+    @Override
+    public String toString() {
+        return "Boleto{" + "id=" + id + ", sala=" + sala + ", costo=" + costo + '}';
+    }
+    
+  
 }
